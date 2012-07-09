@@ -1,0 +1,98 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<% if user_signed_in? %>
+			  <a class="brand" <%= link_to "OnTarget", dashboards_path %></a>
+			<% else %>
+			  <a class="brand" href="/">
+			    OnTarget
+			  </a>
+			<% end %>
+			<div class="nav-collapse">
+			  <ul class="nav">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Goals <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/goals">My Goals</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/goals/new">Add New Goal</a></li>
+                </ul>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Performance Review <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/reviews">My Performance Review</a></li>
+                </ul>
+              <li>
+                <%= link_to 'Dashboard', dashboards_path %>
+              </li>
+            <% if current_user.role == "admin" %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/users">User Management</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/periods">Period Management</a></li>
+                    <li><a href="/periods/new">Add Period</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/reviews">Performance Review Management</a></li>
+                  </ul>
+            <% end %>
+          <% else %>
+            <li>
+              <%= link_to 'Features', static_features_path %>
+            </li>
+          
+            <li>
+              <%= link_to 'Pricing', static_pricing_path %>
+            </li>
+          <% end %>
+        </ul>
+			
+				<ul class="nav pull-right">
+					<li class="dropdown">
+					  <% if user_signed_in? %>
+					    <% if current_user.role == "admin" %>
+						    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							    <i class="icon-cog"></i>
+							    <%= current_user.account.name %>
+							    <b class="caret"></b>
+						    </a>
+						    <ul class="dropdown-menu">
+							    <li><a href="javascript:;"><%= link_to "Edit Account", edit_account_path(current_user.account_id) %></a></li>
+							    <li><a href="javascript:;">Privacy Settings</a></li>
+							    <li class="divider"></li>
+							    <li><a href="javascript:;">Help</a></li>
+						    </ul>
+						  <% end %>
+						  <% else %>
+						    <li><%= link_to 'Sign Up', new_account_path(:user_limit => 250) %></li>
+            <% end %>
+					</li>
+					<li class="dropdown">
+					  <% if user_signed_in? %>
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							  <i class="icon-user"></i> 
+							  <%= current_user.email %>
+							  <b class="caret"></b>
+						  </a>
+						  <ul class="dropdown-menu">
+							  <li><a href="javascript:;"><%= link_to "Edit Profile", edit_user_registration_path %></a></li>
+							  <li><a href="javascript:;"><%= link_to "Change Password", edit_user_password_path %></a></li>
+							  <li class="divider"></li>
+							  <li><a href="javascript:;"><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></a></li>
+						  </ul>
+						<% else %>
+						  <li><%= link_to 'Login', new_user_session_path %></li>
+            <% end %>
+					</li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div> <!-- /container -->
+	</div> <!-- /navbar-inner -->
+</div> <!-- /navbar -->

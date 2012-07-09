@@ -1,0 +1,27 @@
+<div class="span12">
+	<div class="widget big-stats-container">
+		<div class="widget-content">
+  		<div id="big_stats" class="cf">
+		    <div class="stat">								
+			    <h4>User Quota Balance</h4>
+			    <span class="value"><%= @account_balance %></span>								
+		    </div> <!-- .stat -->
+		
+		    <div class="stat">								
+			    <h4>Days before account expires</h4>
+			    <span class="value">45</span>								
+		    </div> <!-- .stat -->
+		
+		    <div class="stat">								
+			    <h4>Days before period ends.</h4>
+			    <span class="value"><%= (@end_date - DateTime.now).to_i %></span>								
+		    </div> <!-- .stat -->
+		
+		    <div class="stat">								
+			    <h4>Something Else</h4>
+			    <span class="value">13</span>								
+		    </div> <!-- .stat -->
+	    </div>
+    </div> <!-- /widget-content -->
+  </div> <!-- /widget -->
+</div> <!-- /span12 -->	

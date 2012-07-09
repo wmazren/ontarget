@@ -1,0 +1,16 @@
+<%= simple_form_for(@goal, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="inputs">
+    <%= f.input :title, :required => true, :autofocus => true, 
+                :placeholder => "add your goal title here", :input_html => { :class => "span5" } %>
+    <%= f.input :description, :as => :text, :required => true, 
+                :placeholder => "add your goal description here (not more than 255 characters)", :input_html => { :class => "span5" } %>
+    <%= f.input :start_date, :as => :date_picker, :required => true %>
+    <%= f.input :due_date, :as => :date_picker, :required => true %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                dashboards_path, :class => 'btn' %>
+  </div>
+<% end %>

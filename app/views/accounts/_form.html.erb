@@ -1,0 +1,30 @@
+<div class="account-container">
+	<div class="content clearfix">
+	  <h1>Sign Up</h1>
+    
+    <%= simple_form_for(@account) do |f| %>
+      
+    <div class="login-fields">
+      <div class="field">
+        <%= f.input :name, :placeholder => 'Company Name', :required => true, :autofocus => true, :input_html => { :class => 'login group-field' } %>
+        <%= f.hidden_field :user_limit %>
+      
+        <%= f.fields_for :users do |users_form| %>
+          <%= users_form.input :username, :placeholder => 'User Name', :required => true, :input_html => { :class => 'login username-field' } %>
+          <%= users_form.input :first_name, :placeholder => 'First Name', :required => true, :input_html => { :class => 'login name-field' } %>
+          <%= users_form.input :last_name, :placeholder => 'Last Name', :required => true, :input_html => { :class => 'login name-field' } %>
+          <%= users_form.input :email, :placeholder => 'Email', :required => true, :input_html => { :class => 'login email-field' } %>
+          <%= users_form.input :password, :placeholder => 'Password', :required => true, :input_html => { :class => 'login password-field' } %>
+          <%= users_form.input :password_confirmation, :placeholder => 'Confirm Password', :required => true, :input_html => { :class => 'login password-field' } %>
+          <%= users_form.hidden_field :role, :value => "admin" %>
+        <% end %>
+        
+      </div> <!-- /field -->
+		</div> <!-- /login-fields -->
+  
+    <div class="login-actions">
+      <%= f.button :submit, "Get started", :class => 'button btn btn-warning btn-large' %>
+    </div>
+    <% end %>
+  </div> <!-- /content -->
+</div> <!-- /account-container -->

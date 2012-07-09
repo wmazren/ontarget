@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="span8">
+    <div class="widget ">
+	    <div class="widget-header">
+		    <i class="icon-user"></i>
+		    <h3>Your Performance Review</h3>
+      </div> <!-- /widget-header -->
+				
+      <div class="widget-content">
+        <div class="tabbable">
+			    <ul class="nav nav-tabs">
+			      <li class="active">
+			        <a href="#profile" data-toggle="tab"><%= @review.period.name %></a>
+			      </li>
+<!--			      <li><a href="#list_admins" data-toggle="tab">List Administrators</a></li>-->
+			    </ul>
+					
+			      <div class="tab-pane active" id="profile">
+					    <dl>
+                <dt><strong>Your Comments:</strong></dt>
+                <dd><%= @review.subordinate_comments %></dd><br>
+                <dt><strong>Supervisor Comments:</strong></dt>
+                <dd><%= @review.supervisor_comments %></dd><br>
+                <dt><strong>Performance Review Rating:</strong></dt>
+                <dd><%= @review.rating %></dd><br>
+                <dt><strong>Your Final Comments</strong></dt>
+                <dd><%= @review.final_comments %></dd><br>
+                <dt><strong>Performance Review Status:</strong></dt>
+                <dd><%= @review.state %></dd><br>
+              </dl>
+				    </div> <!-- /tab-pane active -->
+			    
+		    </div> <!-- /tabbable -->	
+	    </div> <!-- /widget-content -->		
+    </div> <!-- /widget --> 		
+  </div> <!-- /span8 -->
+
+  <div class="span4">
+    <div class="widget widget-box">
+	    <div class="widget-header">
+        <h3>Extra Info</h3>
+      </div> <!-- /widget-header -->
+      
+      <div class="widget-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					
+        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>		
+      </div> <!-- /widget-content -->
+    </div> <!-- /widget-box -->	
+  </div> <!-- /span4 -->
+</div> <!-- /span4 -->

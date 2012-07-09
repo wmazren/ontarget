@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  progress_update: MyString
+  percent_complete: 1
+  state: MyString
+  user_id: 1
+  goal_id: 1
+
+two:
+  progress_update: MyString
+  percent_complete: 1
+  state: MyString
+  user_id: 1
+  goal_id: 1

@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>Performance Review</h1>
+  <h2>Period: <%= @review.period.name %></h2>
+</div>
+
+<%= simple_form_for(@review, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="inputs">
+    <%= f.input :subordinate_comments, :input_html => { :class => "span5" } %>
+    <%= f.input :supervisor_comments, :input_html => { :class => "span5" } %>
+    <%= f.input :rating, :collection => [ "1", "2", "3", "4", "5" ], :input_html => { :class => "span1" } %>
+    <%= f.input :final_comments, :input_html => { :class => "span5" } %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reviews_path, :class => 'btn' %>
+  </div>  
+<% end %>
+

@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="span8">
+    <div class="widget ">
+	    <div class="widget-header">
+		    <i class="icon-user"></i>
+		    <h3>Your Account</h3>
+      </div> <!-- /widget-header -->
+				
+      <div class="widget-content">
+        <div class="tabbable">
+			    <ul class="nav nav-tabs">
+			      <li class="active">
+			        <a href="#profile" data-toggle="tab">Account</a>
+			      </li>
+			      <li><a href="#list_admins" data-toggle="tab">List Administrators</a></li>
+			    </ul>
+					
+			    <br>
+					
+			    <div class="tab-content">
+			      <div class="tab-pane active" id="profile">
+					    <%= simple_form_for(@account, :html => { :class => 'form-horizontal' }) do |f| %>
+					      <fieldset>
+					        <%= f.input :name %>
+					        <%= f.input :phone %>
+					        <%= f.input :fax %>
+					        <%= f.input :address1 %>	
+					        <%= f.input :address2 %>	
+					        <%= f.input :city %>
+					        <%= f.input :postcode %>
+					        <%= f.input :state %>
+					        <%= f.input :country %>
+							    <div class="form-actions">
+								    <%= f.button :submit, :class => 'btn-primary' %>
+								    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                                  users_path, :class => 'btn' %>
+							    </div> <!-- /form-actions -->
+						    </fieldset>
+						  <% end %>
+				    </div> <!-- /tab-pane active -->
+							
+				    <div class="tab-pane" id="list_admins">
+					    <% @admins.each do |admin| %>
+					      <table class="table table-striped table-bordered">
+						      <thead>
+							      <tr>
+								      <th>First Name</th>
+								      <th>Last Name</th>
+								      <th>Email</th>
+							      </tr>
+						      </thead>
+						      <tbody>
+							      <tr>
+								      <td><%= admin.first_name %></td>
+								      <td><%= admin.first_name %></td>
+								      <td><%= admin.email %></td>
+							      </tr>
+							    </tbody>
+                </table>
+              <% end %>
+				    </div> <!-- /tab-pane -->
+			    </div> <!-- /tab-content -->
+		    </div> <!-- /tabbable -->	
+	    </div> <!-- /widget-content -->		
+    </div> <!-- /widget --> 		
+  </div> <!-- /span8 -->
+
+  <div class="span4">
+    <div class="widget widget-box">
+	    <div class="widget-header">
+        <h3>Extra Info</h3>
+      </div> <!-- /widget-header -->
+      
+      <div class="widget-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					
+        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>		
+      </div> <!-- /widget-content -->
+    </div> <!-- /widget-box -->	
+  </div> <!-- /span4 -->
+</div> <!-- /span4 -->

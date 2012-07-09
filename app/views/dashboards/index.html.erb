@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <% if current_user.role == "admin" %>
+    <% if @period_for_first_time > 0 %>
+      <%= render 'dashboards/admin_dashboard' %>
+    <% else %>
+      <%= render 'dashboards/admin_wizard_main' %>
+    <% end %>
+  <% else %>
+    <%= render 'dashboards/user_dashboard' %>
+  <% end %>
+<% end %>
+

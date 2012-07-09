@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_date: 2012-07-05
+  end_date: 2012-07-05
+  state: MyString
+  account_id: 1
+
+two:
+  name: MyString
+  start_date: 2012-07-05
+  end_date: 2012-07-05
+  state: MyString
+  account_id: 1

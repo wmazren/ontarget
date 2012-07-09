@@ -1,0 +1,36 @@
+<div class="widget widget-table action-table">
+	<div class="widget-header">
+		<i class="icon-th-list"></i>
+		<h3>All Reviews</h3>
+	</div> <!-- /widget-header -->
+		
+	<div class="widget-content">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Period</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+        <% @reviews.each do |review| %>
+				  <tr>
+				    <td><%= review.user.first_name %></td>
+			      <td><%= review.user.last_name %></td>
+			      <td><%= review.user.email %></td>
+			      <td><%= review.period.name %></td>
+			      <td><%= review.state %></td>
+			      <td class="td-actions">
+				      <%= link_to "Edit", edit_review_path(review), :class => 'btn btn-mini' %>
+				      <%= link_to "Show", review_path(review), :class => 'btn btn-mini' %>
+				    </td>
+				  </tr>
+				<% end %>
+      </tbody>
+    </table>
+	</div> <!-- /widget-content -->
+</div> <!-- /widget -->

@@ -1,0 +1,30 @@
+<div class="widget">
+  <div class="widget-header">
+    <i class="icon-flag"></i>
+      <h3>Messages</h3>
+  </div> <!-- /widget-header -->
+  
+  <div class="widget-content">
+  <% if @default_period_exist > 0 %>
+    <div class="alert">
+      <p>You need to configure your <strong>'Period'!</strong></p>
+    </div>
+    
+    <dl>
+      <dt>What is a Period?</dt>
+      <dd>A Period, also known as 'Review Period' is a range of dates that consist of a start and end date of a review period. Typically for an organization this will be the same as the organization calander year.</dd><br>
+      
+      <dt>Period examples.</dt>
+      <dd>Period Name: <span class="label label-info">Company Review Period 2012</span></dd>
+      <dd>Period Start Date: <span class="label label-info">01/02/2012</span></dd>
+      <dd>Period End Date: <span class="label label-info">31/01/2013</span></dd><br>
+      
+      <dt>How to configure a Period?</dt>
+      <dd>If this is your first time configuring a Period, a default Period has been created for you during your account sign-up. To configure your period, click the 'Period' shortcut in the 'Quick Shortcuts' box on the right.</dd>
+    </dl>
+  <% else %>
+    <p>There are no messages...</p>
+  <% end %>
+  </div> <!-- /widget-content -->
+</div> <!-- /widget -->
+

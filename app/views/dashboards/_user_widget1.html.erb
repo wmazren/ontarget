@@ -1,0 +1,39 @@
+<div class="span8">
+  <div class="widget widget-nopad">
+    <div class="widget-header">
+	    <i class="icon-list-alt"></i>
+	    <h3>My Goals</h3>
+    </div> <!-- /widget-header -->
+
+    <div class="widget-content">
+	    <ul class="news-items">
+	      <table class="table table-striped">
+          <thead>
+	          <tr>
+	            
+	          </tr>
+          </thead>
+          <tbody>
+	          <% @goals.each do |goal| %>
+	          <tr>
+	            <td>
+	              <h4><%= goal.title %></h4>
+	              <p><%= truncate goal.description, length: 100 %></p>
+	              <small><li><%= link_to 'Edit Goal', edit_goal_path(goal) %> | <%= link_to 'Update Progress', edit_progress_path(goal.progress) %> | Due date: <%=l goal.due_date %></li></small>
+	            </td>
+	            <td>
+	              <div class="news-item-date">
+				          <span class="news-item-day"><%= number_to_percentage(goal.progress.percent_complete, :precision => 0) %></span>
+			          </div>
+	            </td>
+	          </tr>
+	          <% end %>
+          </tbody>
+        </table>
+	    
+	    <div class="form-actions">
+        <%= link_to "Add New Goal", new_goal_path, :class => 'btn btn-primary' %>
+      </div>
+    </div> <!-- /widget-content -->
+  </div> <!-- /widget -->	
+</div> <!-- /span8 -->
