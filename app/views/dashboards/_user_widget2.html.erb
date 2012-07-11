@@ -7,7 +7,7 @@
 	
 	  <div class="widget-content">
 		  <div class="shortcuts">
-			  <a href="reviews#edit" class="shortcut">
+			  <a href="/reviews/<%= @review.id %>/edit" class="shortcut">
 				  <i class="shortcut-icon icon-list-alt"></i>
 				  <span class="shortcut-label">My Reviews</span>
 			  </a>
@@ -17,7 +17,7 @@
 				  <span class="shortcut-label">My Goals</span>								
 			  </a>
 			
-			  <a href="users#edit" class="shortcut">
+			  <a href="/users/<%= current_user.id %>/edit" class="shortcut">
 				  <i class="shortcut-icon icon-signal"></i>
 				  <span class="shortcut-label">My Profile</span>	
 			  </a>
