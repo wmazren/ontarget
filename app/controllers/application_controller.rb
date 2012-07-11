@@ -10,12 +10,15 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)    
     return request.env['omniauth.origin'] || stored_location_for(resource) || dashboards_path
   end
-  
-  private
 
   # Overwriting the devise sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     # root_path
     new_user_session_path
+  end
+  
+  def redirect_to(options = {}, response_status = {})
+    ::Rails.logger.error("Redirected by #{caller(1).first rescue "unknown"}")
+    super(options, response_status)
   end
 end
