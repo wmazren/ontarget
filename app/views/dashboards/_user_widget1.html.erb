@@ -5,7 +5,93 @@
 	    <h3>My Goals</h3>
     </div> <!-- /widget-header -->
 
-    <div class="widget-content">      
+    <div class="widget-content">
+    
+    <% if @goals_total == 0 %>
+		  <h4>
+		    You don't have any GOALS for this period. To add a new GOAL, click the 'Add New Goal' button below to get started. Your GOALS should be S.M.A.R.T. Click examples below for ideas or checkout 'Tips - 'S.M.A.R.T Goals' on the right to guide you.
+		  </h4>
+		  <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">
+              Examples of SMART goals #1
+            </a>
+          </div>
+          <div id="collapse1" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p>
+                Attend the "Assertive Communication" course by the end of Q4 to improve communication and negotiation skills used in team work environments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+              Examples of SMART goals #2
+            </a>
+          </div>
+          <div id="collapse2" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p>
+                <strong>Title:</strong> Manage the execution of the TSHM project.
+              </p>
+              
+              <p>
+                <strong>Description:</strong> Maintain an overall plan that tracks project requirements/inputs, deliverables and milestones. Provide the client with weekly status updates, identifying work completed, plans for the coming week, and any challenges/roadblocks, and attend weekly status meetings. Work with the software development manager and QA manager to review weekly work assignments and ensure timely progress on deliverables. Track the identification and resolution of issues, bugs/errors.
+              </p>
+              
+              <p>
+                <strong>Milestones:</strong> Weekly status updates must be emailed to client by 4pm each Friday.
+              </p>
+              
+              <p>
+                <strong>Due Date:</strong> Final application files must be delivered to the client by April 30th.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse3">
+              Examples of SMART goals #3
+            </a>
+          </div>
+          <div id="collapse3" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p>
+                <strong>Corporate Goal:</strong> Achieve a 90% customer satisfaction rating for the MDX product by the end of the year.
+              </p>
+              
+              <p>
+                <strong>Individual Goal:</strong> Create the end user guide for release 10 of the MDX product.
+              </p>
+              
+              <p>
+                <strong>Description:</strong> Using the product specification, design specification and user interface specification for input, update the existing MDX release 9 user guide to include all new features and functions included in release 10. Check the Problem Reporting System for any outstanding problem reports pertaining to the release 9 documents, and make updates/edits as required. Test all updated document sections, using the technical trial system to ensure accuracy and completeness. Send the tech trial draft and final documents to the product manager and design manager for review/signoff before release, and incorporate any required changes. Ensure all ISO9000 quality records are completed as required.
+              </p>
+              
+              <p>
+                <strong>Milestones:</strong> Draft documents, approved by the product manager, must be available for the product technical trial scheduled to start on August 13, 2008. Final files must be shipped to the printer at least 2 weeks prior to the product release date.
+              </p>
+              
+              <p>
+                <strong>Due Date:</strong> Product Release, November 19, 2009
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <% else %>
+        
       <ul class="news-items">
 	      <table class="table table-striped">
           <thead>
@@ -25,7 +111,7 @@
                       
                     <div id="<%= goal.id %>" class="accordion-body collapse">
                       <p>
-                        <small><%= link_to 'Edit Goal', edit_goal_path(goal) %> | <%= link_to 'Update Progress', edit_progress_path(goal.progress) %> | Due date: <%=l goal.due_date %></small>
+                        <small><%= link_to 'Edit Goal', edit_goal_path(goal) %> | <%= link_to 'Update Progress', edit_progress_path(goal.progress) %> | <%= link_to 'Delete', goal, confirm: 'Are you sure?', method: :delete %> | Due date: <%=l goal.due_date %></small>
                       </p>
                     </div><!-- /accordion-body collapse -->
                   </div><!-- /accordion -->
@@ -39,6 +125,8 @@
 	          <% end %>
           </tbody>
         </table>
+        
+        <% end %>
 
 	    <div class="form-actions">
         <%= link_to "Add New Goal", new_goal_path, :class => 'btn btn-primary' %>

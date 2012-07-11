@@ -29,9 +29,16 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
+    
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    
+    if @user.update_with_password(params[:user])
+      sign_in @user, :bypass => true
       flash[:notice] = "Successfully updated user."
-      redirect_to @user
+      redirect_to dashboards_path
     else
       render :action => 'edit'
     end

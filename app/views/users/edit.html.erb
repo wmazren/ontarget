@@ -1,1 +1,62 @@
-<%= render :partial => 'form' %>
+<div class="row">
+  <div class="span8">
+    <div class="widget ">
+	    <div class="widget-header">
+		    <i class="icon-user"></i>
+		    <h3>Your Account</h3>
+      </div> <!-- /widget-header -->
+				
+      <div class="widget-content">
+        <div class="tabbable">
+			    <ul class="nav nav-tabs">
+			      <li class="active">
+			        <a href="#profile" data-toggle="tab">Account</a>
+			      </li>
+<!--			      <li><a href="#list_admins" data-toggle="tab">List Administrators</a></li>-->
+			    </ul>
+					
+			    <br>
+					
+			    <div class="tab-content">
+			      <div class="tab-pane active" id="profile">
+					    <%= simple_form_for(@user, :html => { :class => 'form-horizontal' }) do |f| %>
+					      <fieldset>
+					        <%= f.input :username, :required => true, :autofocus => true %>
+					        <%= f.input :email, :disabled => true %>
+					        <%= f.input :first_name %>
+					        <%= f.input :last_name %>
+					        <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+                  <%= f.input :password_confirmation, :required => false %>
+                  <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+							    <div class="form-actions">
+								    <%= f.button :submit, :class => 'btn-primary' %>
+								    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                                  users_path, :class => 'btn' %>
+							    </div> <!-- /form-actions -->
+						    </fieldset>
+						  <% end %>
+				    </div> <!-- /tab-pane active -->
+			    </div> <!-- /tab-content -->
+		    </div> <!-- /tabbable -->	
+	    </div> <!-- /widget-content -->		
+    </div> <!-- /widget --> 		
+  </div> <!-- /span8 -->
+
+  <div class="span4">
+    <div class="widget widget-box">
+	    <div class="widget-header">
+        <h3>Extra Info</h3>
+      </div> <!-- /widget-header -->
+      
+      <div class="widget-content">
+        <p>Created At: <%= current_user.created_at.to_s(:datetime).humanize %></p>
+        
+			  <p>Last Edited: <%= current_user.updated_at.to_s(:datetime).humanize %></p>
+			  
+        <p>Login Count: <%= current_user.sign_in_count %></p>
+					
+        <p>Last Sign In: <%if current_user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(current_user.last_sign_in_at.to_datetime)+' ago' %><% end %></p>		
+      </div> <!-- /widget-content -->
+    </div> <!-- /widget-box -->	
+  </div> <!-- /span4 -->
+</div> <!-- /span4 -->

@@ -82,8 +82,7 @@
 							  <b class="caret"></b>
 						  </a>
 						  <ul class="dropdown-menu">
-							  <li><a href="javascript:;"><%= link_to "Edit Profile", edit_user_registration_path %></a></li>
-							  <li><a href="javascript:;"><%= link_to "Change Password", edit_user_password_path %></a></li>
+							  <li><a href="javascript:;"><%= link_to "Edit Profile", edit_user_path(current_user) %></a></li>
 							  <li class="divider"></li>
 							  <li><a href="javascript:;"><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></a></li>
 						  </ul>

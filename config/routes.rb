@@ -1,5 +1,6 @@
 Ontarget::Application.routes.draw do
-  devise_for :users, :path_prefix => 'd', :skip => [:sessions]
+  # devise_for :users, :path_prefix => 'd', :skip => [:sessions]
+  devise_for :users, :path_prefix => 'd'
   
   as :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
@@ -8,12 +9,7 @@ Ontarget::Application.routes.draw do
       :via => Devise.mappings[:user].sign_out_via
   end
   
-  resources :users do
-    collection do
-      post 'new_reviews'
-      post 'create_reviews'
-    end
-  end
+  resources :users
   
   resources :dashboards, :only => [:index]
   

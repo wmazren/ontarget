@@ -11,7 +11,8 @@ class DashboardsController < ApplicationController
     @user = User.find_by_id(current_user)
     @account = @user.account_id
     @review = Review.find_by_user_id_and_state(current_user, 'open')
-    @review_id = Review.find_by_user_id_and_state(current_user, 'open')
+    @review_id = Review.find(:all, :conditions => { :user_id => current_user, :state => 'open' })
+    
     @period_get = Period.find_by_account_id_and_state(@account, 'open')
     # check period for rendering first_time
     @period_for_first_time = Period.find(:all, :conditions => { :account_id => current_user.account_id }).count
@@ -33,7 +34,8 @@ class DashboardsController < ApplicationController
     end
     
     @goals = Goal.find_all_by_user_id_and_review_id(current_user, @review_id)
-    @goals_total = Goal.find_all_by_user_id_and_review_id(current_user, @review_id).count
+    # @goals_total = Goal.find_all_by_user_id_and_review_id(current_user, @review_id).count
+    @goals_total = Goal.find(:all, :conditions => { :user_id => 2, :state => 'open' }).count
     @goals_open = Goal.find(:all, :conditions => { :user_id => current_user, :review_id => @review_id, :state => 'open' }).count
     @goals_closed = Goal.find(:all, :conditions => { :user_id => current_user, :review_id => @review_id, :state => 'closed' }).count
     @goals_in_progress = Goal.find(:all, :conditions => { :user_id => current_user, :review_id => @review_id, :state => 'in progress' }).count

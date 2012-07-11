@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params[:account])
+    
     if @account.save
       flash[:notice] = "Account created"
       redirect_to root_url #redirect to welcome page
