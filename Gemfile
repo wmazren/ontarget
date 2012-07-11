@@ -16,7 +16,7 @@ gem 'jquery-ui-themes'
 gem 'thin', :group => :development
 gem 'quiet_assets', :group => :development
 gem 'wirble', :group => :development
-gem 'hirb', :group => :development
+gem 'hirb'
 
 # Gems used only for assets and not required
 # in production environments by default.
