@@ -25,6 +25,7 @@ Ontarget::Application.routes.draw do
   
   get "static/pricing"
   get "static/features"
+  get "static/google17591c29c6eaa88c.html"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
