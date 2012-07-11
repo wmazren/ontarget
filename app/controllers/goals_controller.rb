@@ -14,7 +14,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @review = Review.find_by_user_id(current_user).id.to_i
+    @review = Review.find_by_user_id(current_user, :conditions => { :state => "open" }).id.to_i
     @goal = current_user.goals.build(params[:goal])
     @goal.review_id = @review
     @progress = @goal.build_progress(params[:progress])

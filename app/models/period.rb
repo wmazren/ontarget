@@ -49,11 +49,18 @@ class Period < ActiveRecord::Base
   def close_reviews
     p = self
     if p.state == "closed"
+      #close all reviews for this period
       reviews = Review.find(:all, :conditions => { :period_id => self })
     
       reviews.each do |review|
         review.closer
       end
+      
+      #then create a default period and reviews for all users
+      period = Period.create(:name => "**Default Period**",
+                           :start_date => Date.today,
+                           :end_date => Date.today,
+                           :account_id => self.account_id)
     end
   end
 end

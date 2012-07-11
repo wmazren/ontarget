@@ -21,6 +21,7 @@ class PeriodsController < ApplicationController
       flash[:notice] = "Period created"
       redirect_to dashboards_path
     else
+      # format.html { render action: "new" }
       redirect_to periods_path, alert: 'Unable to create new Period. An *OPEN* Period still exist'
     end
   end

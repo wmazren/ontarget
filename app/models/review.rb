@@ -5,6 +5,7 @@ class Review < ActiveRecord::Base
   has_many :goals
   
   after_create :change_review_state
+  after_update :close_goals
   
   state_machine :initial => :unregistered do
     event :opener do
@@ -23,5 +24,16 @@ class Review < ActiveRecord::Base
   
   def change_review_state
     self.opener
+  end
+  
+  def close_goals
+    r = self
+    if r.state == "closed"
+      goals = Goal.find(:all, :conditions => { :review_id => self })
+    
+      goals.each do |goal|
+        goal.closer
+      end
+    end
   end
 end
