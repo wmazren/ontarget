@@ -29,7 +29,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
-    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
     cancan (1.6.8)
     coffee-rails (3.2.2)
@@ -47,11 +47,10 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     erubis (2.7.0)
-    eventmachine (0.12.10)
+    eventmachine (1.0.0.beta.4.1-x86-mingw32)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
-    hirb (0.6.2)
     httparty (0.8.3)
       multi_json (~> 1.0)
       multi_xml
@@ -70,14 +69,8 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     multi_xml (0.5.1)
-    mysql2 (0.3.11)
-    orm_adapter (0.3.0)
-    paper_trail (2.6.3)
-      activerecord (~> 3.0)
-      railties (~> 3.0)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
-    quiet_assets (1.0.1)
-      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -115,6 +108,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.6-x86-mingw32)
     state_machine (1.1.2)
     thin (1.4.1)
       daemons (>= 1.0.9)
@@ -131,26 +125,22 @@ GEM
       multi_json (~> 1.3)
     warden (1.2.1)
       rack (>= 1.0)
-    wirble (0.1.3)
 
 PLATFORMS
-  ruby
+  x86-mingw32
 
 DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   country_select
   devise
-  hirb
+  eventmachine (= 1.0.0.beta.4.1)
   jquery-rails
   jquery-ui-themes
-  mysql2
-  paper_trail
-  quiet_assets
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
   simple_form
+  sqlite3
   state_machine
   thin
   uglifier (>= 1.0.3)
-  wirble
