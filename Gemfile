@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem "eventmachine", "1.0.0.beta.4.1"
-gem 'sqlite3'
+gem 'mysql2'
 gem 'simple_form'
 gem 'country_select'
 gem 'devise'
 gem 'cancan'
+gem "paper_trail"
 gem 'state_machine'
 gem 'jquery-ui-themes'
 gem 'thin', :group => :development
+gem 'quiet_assets', :group => :development
+gem 'wirble', :group => :development
+gem 'hirb'
 
 # Gems used only for assets and not required
 # in production environments by default.
