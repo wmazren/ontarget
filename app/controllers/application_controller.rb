@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_filter :set_timezone  
+  
+  def set_timezone  
+    # current_user.time_zone #=> 'Central Time (US & Canada)'  
+    Time.zone = 'Kuala Lumpur'  
+  end
+
   protect_from_forgery
   # before_filter :authenticate_user!
   
